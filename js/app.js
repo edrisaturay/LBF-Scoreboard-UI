@@ -3130,7 +3130,112 @@ try {
 } catch (e) {}
 
 $(document).ready(function () {
-  console.log('hello');
+  var data = {
+    home_team: {
+      name: "NPA Python",
+      score: 50,
+      players: [{
+        number: 6,
+        foul: 3
+      }, {
+        number: 32,
+        foul: 0
+      }, {
+        number: 12,
+        foul: 2
+      }, {
+        number: 8,
+        foul: 4
+      }, {
+        number: 52,
+        foul: 1
+      }, {
+        number: 36,
+        foul: 0
+      }, {
+        number: 5,
+        foul: 0
+      }, {
+        number: 7,
+        foul: 5
+      }, {
+        number: 9,
+        foul: 0
+      }, {
+        number: 11,
+        foul: 3
+      }, {
+        number: 15,
+        foul: 1
+      }, {
+        number: 20,
+        foul: 2
+      }]
+    },
+    away_team: {
+      name: "Mighty Barolle",
+      score: 48,
+      players: [{
+        number: 4,
+        foul: 3
+      }, {
+        number: 21,
+        foul: 5
+      }, {
+        number: 58,
+        foul: 1
+      }, {
+        number: 3,
+        foul: 5
+      }, {
+        number: 97,
+        foul: 2
+      }, {
+        number: 7,
+        foul: 1
+      }, {
+        number: 0,
+        foul: 0
+      }, {
+        number: 39,
+        foul: 0
+      }, {
+        number: 92,
+        foul: 0
+      }, {
+        number: 12,
+        foul: 2
+      }, {
+        number: 5,
+        foul: 1
+      }, {
+        number: 7,
+        foul: 4
+      }]
+    }
+  };
+
+  var buildFouls = function buildFouls(foul) {
+    var output = "";
+
+    for (var i = 0; i < foul; i++) {
+      output += '<div class="col-2" id="player-foul-' + (i + 1) + '"> X </div>';
+    }
+
+    return output;
+  };
+
+  var buildFouler = function buildFouler(fouler, index) {
+    var output = "";
+    output += '<div class="row my-2" id="fouler-' + (index + 1) + '">' + '<div class="col-2 text-danger">' + fouler.foul + '</div>' + buildFouls(fouler.foul) + '</div>';
+    return output;
+  };
+
+  data.home_team.players.forEach(function (item, index) {
+    var foulsContainer = $("#fouls");
+    foulsContainer.append(buildFouler(item, index));
+    console.log(item, index);
+  });
 });
 
 /***/ }),

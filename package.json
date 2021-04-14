@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "laravel-mix": "^6.0.16",
-    "lodash": "^4.17.19",
+    "loh": "^4.17.19",
     "postcss": "^8.1.14",
     "postcss-import": "^12.0.1",
     "resolve-url-loader": "^3.1.2",

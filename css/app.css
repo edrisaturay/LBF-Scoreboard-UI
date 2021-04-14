@@ -10828,12 +10828,12 @@ textarea.form-control-lg {
   }
 }
 @font-face {
-  font-family: "Technology";
+  font-family: Technology;
   src: url(/fonts/Technology.ttf?6b8f64e5bef62547dd4c785e8b8d7d42) format("truetype");
   font-style: normal;
 }
 @font-face {
-  font-family: "Remaster";
+  font-family: Remaster;
   src: url(/fonts/Remaster.ttf?c6149b3cb2f55d6bfec1bb57dfe8c295) format("truetype");
   font-style: normal;
 }
