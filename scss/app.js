@@ -20,7 +20,8 @@ $(document).ready(function () {
       home_team: {
         name: "Lakers",
         logo: "home-logo",
-        score: 50,
+        score: 120,
+        quater_foul: 7,
         players: [
           { number: 6, foul: 3 },
           { number: 32, foul: 0 },
@@ -39,7 +40,8 @@ $(document).ready(function () {
       away_team: {
         name: "Worriors",
         logo: "away-logo",
-        score: 48,
+        score: 155,
+        quater_foul: 3,
         players: [
           { number: 4, foul: 3 },
           { number: 21, foul: 5 },
@@ -62,7 +64,7 @@ $(document).ready(function () {
 
         for(let i=0; i<foul; i++){
             output +=
-              '<div class="col-2" id="player-foul-' +
+              '<div class="col-2 text-'+ (i>3 ? 'danger' : 'warning')+'" id="player-foul-' +
               (i + 1) +
               '">' +
               '<i class="fas fa-bahai">*</i>' +
@@ -117,4 +119,68 @@ $(document).ready(function () {
     let awayLogo = $("#away-logo");
     awayLogo.html(buildLogo(data.away_team.logo));
 
+    let homeScore = $('#home-score');
+    homeScore.html(data.home_team.score);
+
+    let awayScore = $('#away-score');
+    awayScore.html(data.away_team.score);
+
+    let buildQuarterFoul = (foul) => {
+      let output = "";
+
+      for(let i=0; i<foul; i++){
+        if(i > 6) {
+          continue;
+        }
+        output +=
+          '<div class="col-1 text-'+ ((i>5) ? 'danger' : 'warning') + '" id="quarter-foul-' +
+          (i + 1) +
+          '">' +
+          '<i class="fas fa-bahai">*</i>' +
+          "</div>";
+      }
+
+      return output;
+  }
+
+  let homeQuarterFoul = $('#home-quarter-foul');
+  homeQuarterFoul.append(buildQuarterFoul(data.home_team.quater_foul));
+
+  let awayQuarterFoul = $('#away-quarter-foul');
+  awayQuarterFoul.append(buildQuarterFoul(data.away_team.quater_foul));
+
+  let homeTeamName = $('#home-team-name');
+  homeTeamName.html(data.home_team.name);
+
+  let awayTeamName = $('#away-team-name');
+  awayTeamName.html(data.away_team.name);
+
+  let quarterClock = $('#quarter-clock');
+  let secondsClock = $('#seconds-clock');
+
+  let interval = 1000;
+  let totalSeconds = 24;
+  let secondsInterval = setInterval(() => {
+    if(totalSeconds < 0){
+      totalSeconds = 24
+      
+    }
+    totalSeconds--;
+    secondsClock.html(totalSeconds);
+    
+  }, interval);
+
+  secondsClock.on('click', (e) => {
+    totalSeconds = 24;
+    secondsInterval();
+  });
+
+  let duration = 10;
+  let durationInSecs = duration * 60;
+  let minutesInterval = setInterval(() => {
+    durationInSecs--;
+    if(durationInSecs >= 0){
+      quarterClock.html(parseInt(durationInSecs/60, 10) + ':' + parseInt(durationInSecs % 60, 10));
+    }
+  }, interval);
 });

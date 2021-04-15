@@ -32,15 +32,55 @@
             <div class="col-6">
                 <div class="row mb-3">
                     <div class="col card card-body border-warning bg-dark text-warning">
-                        hello
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-8">
+                                <div class="quarter-clock">
+                                    <span class="font-size-200 lh-1" id="quarter-clock">10:00</span>
+                                </div>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="text-start font-size-50 font-family-reamster">
+                                    <span id="home-team-name"></span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-end font-size-50 font-family-reamster">
+                                    <span id="away-team-name"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 font-size-150 text-center lh-1 text-danger">
+                                <div class="row" id="home-quarter-foul">
+                                    
+                                </div>
+                                <span id="home-score">
+                                </span>
+                            </div>
+                            <div class="col-4 lh-1">
+                                <div class="text-center">
+                                    <div class="font-size-80" id="period"><span>4</span></div>
+                                    <div class="period-title mt-3"><span>Period</span></div>
+                                </div>
+                            </div>
+                            <div class="col-4 font-size-150 text-center lh-1 text-danger">
+                                <div class="row" id="away-quarter-foul"></div>
+                                <span id="away-score">    
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col card card-body border-warning bg-dark text-danger">
                         <div class="row">
                             <div class="col-4 d-flex align-content-center" id="home-logo"></div>
-                            <div class="col-4" id="secs-countdown">
-                                <h1 class="text-center seconds-counter">24</h1>
+                            <div class="col-4 text-center" id="secs-countdown">
+                                <span class="font-size-150" id="seconds-clock">24</span>
                             </div>
                             <div class="col-4 d-flex align-content-center" id="away-logo"></div>
                         </div>

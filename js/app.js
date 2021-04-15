@@ -3135,7 +3135,8 @@ $(document).ready(function () {
     home_team: {
       name: "Lakers",
       logo: "home-logo",
-      score: 50,
+      score: 120,
+      quater_foul: 7,
       players: [{
         number: 6,
         foul: 3
@@ -3177,7 +3178,8 @@ $(document).ready(function () {
     away_team: {
       name: "Worriors",
       logo: "away-logo",
-      score: 48,
+      score: 155,
+      quater_foul: 3,
       players: [{
         number: 4,
         foul: 3
@@ -3222,7 +3224,7 @@ $(document).ready(function () {
     var output = "";
 
     for (var i = 0; i < foul; i++) {
-      output += '<div class="col-2" id="player-foul-' + (i + 1) + '">' + '<i class="fas fa-bahai">*</i>' + "</div>";
+      output += '<div class="col-2 text-' + (i > 3 ? 'danger' : 'warning') + '" id="player-foul-' + (i + 1) + '">' + '<i class="fas fa-bahai">*</i>' + "</div>";
     }
 
     return output;
@@ -3261,6 +3263,58 @@ $(document).ready(function () {
   homeLogo.html(buildLogo(data.home_team.logo));
   var awayLogo = $("#away-logo");
   awayLogo.html(buildLogo(data.away_team.logo));
+  var homeScore = $('#home-score');
+  homeScore.html(data.home_team.score);
+  var awayScore = $('#away-score');
+  awayScore.html(data.away_team.score);
+
+  var buildQuarterFoul = function buildQuarterFoul(foul) {
+    var output = "";
+
+    for (var i = 0; i < foul; i++) {
+      if (i > 6) {
+        continue;
+      }
+
+      output += '<div class="col-1 text-' + (i > 5 ? 'danger' : 'warning') + '" id="quarter-foul-' + (i + 1) + '">' + '<i class="fas fa-bahai">*</i>' + "</div>";
+    }
+
+    return output;
+  };
+
+  var homeQuarterFoul = $('#home-quarter-foul');
+  homeQuarterFoul.append(buildQuarterFoul(data.home_team.quater_foul));
+  var awayQuarterFoul = $('#away-quarter-foul');
+  awayQuarterFoul.append(buildQuarterFoul(data.away_team.quater_foul));
+  var homeTeamName = $('#home-team-name');
+  homeTeamName.html(data.home_team.name);
+  var awayTeamName = $('#away-team-name');
+  awayTeamName.html(data.away_team.name);
+  var quarterClock = $('#quarter-clock');
+  var secondsClock = $('#seconds-clock');
+  var interval = 1000;
+  var totalSeconds = 24;
+  var secondsInterval = setInterval(function () {
+    if (totalSeconds < 0) {
+      totalSeconds = 24;
+    }
+
+    totalSeconds--;
+    secondsClock.html(totalSeconds);
+  }, interval);
+  secondsClock.on('click', function (e) {
+    totalSeconds = 24;
+    secondsInterval();
+  });
+  var duration = 10;
+  var durationInSecs = duration * 60;
+  var minutesInterval = setInterval(function () {
+    durationInSecs--;
+
+    if (durationInSecs >= 0) {
+      quarterClock.html(parseInt(durationInSecs / 60, 10) + ':' + parseInt(durationInSecs % 60, 10));
+    }
+  }, interval);
 });
 
 /***/ }),
