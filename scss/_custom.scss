@@ -1,5 +1,5 @@
 body{
-    font-family: "Remaster";
+    font-family: "Technology";
     background-color: $black;
     color: $yellow;
     div.container{
@@ -9,6 +9,7 @@ body{
     }
 }
 
+$players: 12;
 
 div #player-foul-5{
     color: $red;
@@ -16,4 +17,10 @@ div #player-foul-5{
 
 h1.seconds-counter {
     font-size: 150px;
+}
+
+@for $i from 1 through  $players {
+    #player-number-#{$i}, #player-foul-#{$i}, #fouler-#{$i} {
+        font-size: 30px;
+    }
 }

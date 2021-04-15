@@ -1,6 +1,6 @@
 window._ = require('lodash');
 import 'bootstrap';
-import '@fortawesome/fontawesome-free'
+// import '@fortawesome/fontawesome-free'
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -65,7 +65,7 @@ $(document).ready(function () {
               '<div class="col-2" id="player-foul-' +
               (i + 1) +
               '">' +
-              '<i class="fas fa-bahai"></i>' +
+              '<i class="fas fa-bahai">*</i>' +
               "</div>";
         }
 
@@ -74,7 +74,7 @@ $(document).ready(function () {
   
     let buildFouler = (fouler, index) => {
         let output = "";
-        output += '<div class="row my-3" id="fouler-'+ (index + 1) +'">'
+        output += '<div class="row my-2" id="fouler-'+ (index + 1) +'">'
             + '<div class="col-2 text-danger">'+ fouler.foul +'</div>'
             + buildFouls(fouler.foul)
         +'</div>'
@@ -83,7 +83,7 @@ $(document).ready(function () {
 
     let buildNumbers = (number, index) => {
         let output = "";
-        output += '<div class="row my-3 text-center" id="player-number-'+ (index + 1) +'"><div class="col"><span>'+ number +'</span></div></div>';
+        output += '<div class="row my-2 text-center" id="player-number-'+ (index + 1) +'"><div class="col"><span>'+ number +'</span></div></div>';
         return output;
     }
 
