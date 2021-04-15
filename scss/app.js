@@ -163,11 +163,10 @@ $(document).ready(function () {
   let secondsInterval = setInterval(() => {
     if(totalSeconds < 0){
       totalSeconds = 24
-      
     }
     totalSeconds--;
     secondsClock.html(totalSeconds);
-    
+
   }, interval);
 
   secondsClock.on('click', (e) => {
