@@ -2,4 +2,18 @@ body{
     font-family: "Remaster";
     background-color: $black;
     color: $yellow;
+    div.container{
+        div.row{
+
+        }
+    }
+}
+
+
+div #player-foul-5{
+    color: $red;
+}
+
+h1.seconds-counter {
+    font-size: 150px;
 }

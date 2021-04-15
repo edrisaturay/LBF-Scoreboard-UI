@@ -13,30 +13,51 @@
     <title>LBF Scoreboard</title>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-3">
                 <div class="row">
                     <div class="col-8">
-                        <div class="card card-body border-warning bg-dark" id="fouls">
-                            // Fouls goes here
+                        <div class="card card-body border-warning bg-dark" id="home-fouls">
+                            <!-- Fouls goes here -->
                         </div>
                     </div>
                     <div class="col-4">
-                        number
+                        <div class="card card-body border-warning bg-dark text-danger" id="home-numbers">
+                            <!-- Numbers goes here -->
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-6">
-                middle
+                <div class="row mb-3">
+                    <div class="col card card-body border-warning bg-dark text-warning">
+                        hello
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col card card-body border-warning bg-dark text-danger">
+                        <div class="row">
+                            <div class="col-4 d-flex align-content-center" id="home-logo"></div>
+                            <div class="col-4" id="secs-countdown">
+                                <h1 class="text-center seconds-counter">24</h1>
+                            </div>
+                            <div class="col-4 d-flex align-content-center" id="away-logo"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-3">
                 <div class="row">
                     <div class="col-4">
-                        foul
+                         <div class="card card-body border-warning bg-dark text-danger" id="away-numbers">
+                            <!-- Numbers goes here -->
+                        </div>
                     </div>
                     <div class="col-8">
-                        number
+                        <div class="card card-body border-warning bg-dark" id="away-fouls">
+                            <!-- Fouls goes here -->
+                        </div>
                     </div>
                 </div>
             </div>
